@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Voucher Gacha Surprise!</title>
+  <style>
+    body {
+      background-color: #fef4d4;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .voucher-box {
+      display: none;
+      border: 3px dashed #cc0000;
+      background: #fff;
+      width: 300px;
+      margin: 20px auto;
+      padding: 20px;
+      font-size: 18px;
+      color: #cc0000;
+      border-radius: 10px;
+      animation: pop 0.5s ease;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0); }
+      100% { transform: scale(1); }
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #cc0000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #a50000;
+    }
+
+    .confetti {
+      font-size: 30px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🎉 Selamat Datang di Gacha Voucher Spesial Debut! 🎉</h2>
+  <p>Pencet tombolnya dan dapetin salah satu voucher surprise-nya~!</p>
+  <button onclick="getVoucher()">Cek Hadiah Voucher!</button>
+
+  <div class="voucher-box" id="voucherBox"></div>
+
+  <script>
+    const vouchers = [
+      "🎁 Kode Voucher: SUNDEBUT (Diskon 24%) 🎁",
+      "🎁 Kode Voucher: LALADEBUT (Diskon 24%) 🎁"
+    ];
+
+    function getVoucher() {
+      const randomIndex = Math.floor(Math.random() * vouchers.length);
+      const voucherText = vouchers[randomIndex];
+      const voucherBox = document.getElementById('voucherBox');
+
+      voucherBox.style.display = 'block';
+      voucherBox.innerHTML = `${voucherText} <br><br><span class="confetti">🎊🎊🎊</span>`;
+    }
+  </script>
+
+</body>
+</html>
